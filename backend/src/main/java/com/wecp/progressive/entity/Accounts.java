@@ -7,15 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="accounts")
-public class Accounts {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+// @Entity
+// @Table(name="accounts")
+public class Accounts implements Comparable<Accounts>{
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int accountId;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private int customerId;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private double balance;
     public Accounts() {
     }
@@ -41,6 +41,10 @@ public class Accounts {
     }
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+    @Override
+    public int compareTo(Accounts o) {
+       return Double.compare(this.getBalance(),o.getBalance());
     }
     
 }

@@ -3,10 +3,16 @@ package com.wecp.progressive.service.impl;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.wecp.progressive.dao.TransactionDAO;
 import com.wecp.progressive.entity.Transactions;
 import com.wecp.progressive.service.TransactionService;
 
 public class TransactionServiceImpl implements TransactionService{
+    private TransactionDAO transactionDAO;
+    
+    public TransactionServiceImpl(TransactionDAO transactionDAO) {
+        this.transactionDAO = transactionDAO;
+    }
 
     @Override
     public List<Transactions> getAllTransactions() throws SQLException {

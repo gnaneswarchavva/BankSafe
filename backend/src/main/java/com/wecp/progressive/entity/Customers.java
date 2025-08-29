@@ -7,19 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="customers")
-public class Customers {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+// @Entity
+// @Table(name="customers")
+public class Customers implements Comparable<Customers>{
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String email;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String username;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String password;
     private String role;
     public Customers() {
@@ -31,6 +31,14 @@ public class Customers {
         this.username = username;
         this.password = password;
         this.role = role;
+    }
+    
+    public Customers(int customerId, String name, String email, String username, String password) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
     }
     public int getCustomerId() {
         return customerId;
@@ -67,6 +75,10 @@ public class Customers {
     }
     public void setRole(String role) {
         this.role = role;
+    }
+    @Override
+    public int compareTo(Customers o) {
+        return this.getName().compareTo(o.getName());
     }
     
 }

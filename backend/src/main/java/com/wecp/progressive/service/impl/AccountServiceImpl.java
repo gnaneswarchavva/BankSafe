@@ -13,12 +13,12 @@ public class AccountServiceImpl implements AccountService{
     private AccountDAO accountDAO;
     
     public AccountServiceImpl(AccountDAOImpl accountDAO) {
-        this.accountDAO = accountDAO;
+        //this.accountDAO = accountDAO;
     }
-    List<Accounts> list=new ArrayList<>();
+    //List<Accounts> list=new ArrayList<>();
     @Override
     public List<Accounts> getAllAccounts() throws SQLException {
-        return list;
+        return List.of();
     }
 
     @Override
@@ -27,18 +27,21 @@ public class AccountServiceImpl implements AccountService{
     }
     @Override
     public List<Accounts> getAllAccountsSortedByBalance() throws SQLException {
-        return list;
+        return List.of();
     }
+    @Override
     public List<Accounts> getAccountsByUser(int userId) throws SQLException {
-        return list;
+        return null;
     }
+    @Override
     public Accounts getAccountById(int accountId) throws SQLException {
         return null;
     }
-    
+    @Override
     public void updateAccount(Accounts accounts) throws SQLException {
 
     }
+    @Override
     public void deleteAccount(int accountId) throws SQLException {
 
     }

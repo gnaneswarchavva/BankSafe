@@ -12,13 +12,13 @@ import com.wecp.progressive.service.CustomerService;
 public class CustomerServiceImpl implements CustomerService{
     private CustomerDAO customerDAO;
     
-    public CustomerServiceImpl(CustomerDAOImpl customerDAO) {
-        this.customerDAO = customerDAO;
+    public CustomerServiceImpl(CustomerDAOImpl customerDAO) throws SQLException {
+        //this.customerDAO = customerDAO;
     }
-    List<Customers> list=new ArrayList<>();
+    //List<Customers> list=new ArrayList<>();
     @Override
     public List<Customers> getAllCustomers() throws SQLException {
-        return list;
+        return List.of();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public List<Customers> getAllCustomersSortedByName() throws SQLException {
-        return list;
+        return List.of();
     }
     public  void updateCustomer(Customers customers) throws SQLException {
 

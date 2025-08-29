@@ -7,19 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-@Entity
-@Table(name="transactions")
+// @Entity
+// @Table(name="transactions")
 public class Transactions {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int transactionId;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private int accountId;
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private double amount;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String transactionType;
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private Date transactionDate;
     public Transactions() {
     }
