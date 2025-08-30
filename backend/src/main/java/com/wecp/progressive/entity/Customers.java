@@ -7,20 +7,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-// @Entity
-// @Table(name="customers")
+@Entity
+@Table(name="customers")
 public class Customers implements Comparable<Customers>{
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String name;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String email;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String username;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     private String role;
     public Customers() {
     }
