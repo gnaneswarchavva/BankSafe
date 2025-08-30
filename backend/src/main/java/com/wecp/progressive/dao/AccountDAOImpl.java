@@ -10,7 +10,7 @@ public class AccountDAOImpl implements AccountDAO{
     public List<Accounts> getAllAccounts() {
         return null;
     }
-    public List<Accounts> getAllAccountsByCustomer(int customerId){
+    public List<Accounts> getAllAccountsByCustomer(int customer_id){
         List<Accounts> accounts=new ArrayList<>();
         return accounts;
     }

@@ -13,7 +13,7 @@ public class CustomerServiceImpl implements CustomerService{
     private CustomerDAO customerDAO;
     
     public CustomerServiceImpl(CustomerDAOImpl customerDAO) throws SQLException {
-        //this.customerDAO = customerDAO;
+        this.customerDAO = customerDAO;
     }
     //List<Customers> list=new ArrayList<>();
     @Override

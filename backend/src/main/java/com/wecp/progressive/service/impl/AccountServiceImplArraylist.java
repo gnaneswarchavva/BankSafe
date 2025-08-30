@@ -9,27 +9,27 @@ import com.wecp.progressive.entity.Accounts;
 import com.wecp.progressive.service.AccountService;
 
 public class AccountServiceImplArraylist implements AccountService {
-    private static List<Accounts> account=new ArrayList<>();
+    private static List<Accounts> accountList=new ArrayList<>();
     @Override
     public List<Accounts> getAllAccountsSortedByBalance() {
-        List<Accounts> sortesAcc=account;
+        List<Accounts> sortesAcc=accountList;
         sortesAcc.sort(Comparator.comparingDouble(Accounts::getBalance));
        return sortesAcc;
     }
     @Override
     public List<Accounts> getAllAccounts()  {
-        return account;
+        return accountList;
     }
 
     @Override
     public int addAccount(Accounts accounts)  {
-        account.add(accounts);
-        return account.size();
+        accountList.add(accounts);
+        return accountList.size();
     }
 
     
     @Override
     public void emptyArrayList(){
-        account=new ArrayList<>();
+        accountList=new ArrayList<>();
     }
 }

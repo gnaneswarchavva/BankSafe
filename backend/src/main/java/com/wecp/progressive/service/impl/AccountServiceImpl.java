@@ -13,7 +13,7 @@ public class AccountServiceImpl implements AccountService{
     private AccountDAO accountDAO;
     
     public AccountServiceImpl(AccountDAOImpl accountDAO) {
-        //this.accountDAO = accountDAO;
+        this.accountDAO = accountDAO;
     }
     //List<Accounts> list=new ArrayList<>();
     @Override
