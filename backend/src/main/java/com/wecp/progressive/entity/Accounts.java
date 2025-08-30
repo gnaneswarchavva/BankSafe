@@ -7,15 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="accounts")
+// @Entity
+// @Table(name="accounts")
 public class Accounts implements Comparable<Accounts>{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int accountId;
-    @Column(nullable = false)
+    // @Column(nullable = false)
     private int customerId;
-    @Column(nullable = false)
+    // @Column(nullable = false)
     private double balance;
     public Accounts() {
     }
