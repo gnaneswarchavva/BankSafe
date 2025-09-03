@@ -22,18 +22,14 @@ public class LoanController {
     }
     @GetMapping
     public ResponseEntity<List<Loan>> getAllLoans() throws SQLException {
-        //List<Loan> list=loanService.getAllLoans();
         return new ResponseEntity<>(loanService.getAllLoans(),HttpStatus.OK);
     }
 
     
     @GetMapping("/{id}")
     public ResponseEntity<Loan> getLoanById(@PathVariable Long id) {
-        // Loan l=loanService.getLoanById(id);
-        // if(l==null){
         return new ResponseEntity<>(loanService.getLoanById(id),HttpStatus.OK);
-        // }
-        // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        
     }
     @PostMapping
     public ResponseEntity<Loan> createLoan(@RequestBody Loan loan) {
