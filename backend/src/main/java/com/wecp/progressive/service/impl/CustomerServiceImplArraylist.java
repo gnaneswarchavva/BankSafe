@@ -9,9 +9,14 @@ import org.springframework.stereotype.Service;
 
 import com.wecp.progressive.entity.Customers;
 import com.wecp.progressive.service.CustomerService;
+
 @Service
-public class CustomerServiceImplArraylist implements CustomerService {
-    private static List<Customers> customersList=new ArrayList<>();
+public class CustomerServiceImplArraylist implements CustomerService{
+
+    private static List<Customers> customersList= new ArrayList<>();
+
+    
+   
     @Override
     public List<Customers> getAllCustomers() throws SQLException {
         return customersList;
@@ -25,12 +30,14 @@ public class CustomerServiceImplArraylist implements CustomerService {
 
     @Override
     public List<Customers> getAllCustomersSortedByName() throws SQLException {
-        List<Customers> sortedList=customersList;
-        Collections.sort(sortedList);
-        return sortedList;
+        List<Customers> sortedCustomers= customersList;
+        Collections.sort(sortedCustomers);
+        return sortedCustomers;
     }
-    @Override
+
     public void emptyArrayList(){
         customersList=new ArrayList<>();
     }
+
+
 }

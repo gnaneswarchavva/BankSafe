@@ -17,7 +17,7 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionDAO.getAllTransactions();
     }
     @Override
-    public Transactions getTransactionById(int transactionId) throws SQLException {
+    public Transactions getTransactionById(Integer transactionId) throws SQLException {
         return transactionDAO.getTransactionById(transactionId);
     }
     @Override
@@ -29,7 +29,7 @@ public class TransactionServiceImpl implements TransactionService {
         transactionDAO.updateTransaction(transaction);
     }
     @Override
-    public void deleteTransaction(int transactionId) throws SQLException {
+    public void deleteTransaction(Integer transactionId) throws SQLException {
         transactionDAO.deleteTransaction(transactionId);
     }
     @Override
@@ -37,4 +37,5 @@ public class TransactionServiceImpl implements TransactionService {
         
         return null;
     }
+    
 }

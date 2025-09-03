@@ -40,7 +40,6 @@ public class TransactionDAOImpl implements TransactionDAO{
                 connection.close();
             }
         }
-
         return transactions;
     }
 

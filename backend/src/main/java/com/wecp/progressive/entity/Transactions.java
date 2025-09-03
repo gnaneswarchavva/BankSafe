@@ -14,43 +14,46 @@ public class Transactions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(insertable = false , updatable = false)
-    private int transactionId;
+    @Column(nullable = false)
+    private Integer transactionId;
+
+    @Column(insertable = false, updatable = false)
     private int accountId;
+    
     private double amount;
     private String transactionType;
     private Date transactionDate;
-    // @ManyToOne
-    // @JoinColumn(name="accountId")
-    // private Accounts accounts;
-    public Transactions() {
-        //
-    }
-    
-    // public Transactions(int transactionId, int accountId, double amount, String transactionType, Date transactionDate,
-    //         Accounts accounts) {
-    //     this.transactionId = transactionId;
-    //     this.accountId = accountId;
-    //     this.amount = amount;
-    //     this.transactionType = transactionType;
-    //     this.transactionDate = transactionDate;
-    //     this.accounts = accounts;
-    // }
 
-    public Transactions(int transactionId, int accountId, double amount, Date timestamp, String transactionType) {
+    @ManyToOne
+    @JoinColumn(name = "accountId")
+    private Accounts accounts;
+
+    public Transactions() {
+    }
+
+    public Transactions(Integer transactionId, int accountId, double amount, Date transactionDate, String transactionType) {
         this.transactionId = transactionId;
         this.accountId = accountId;
         this.amount = amount;
-        this.transactionDate = timestamp;
         this.transactionType = transactionType;
+        this.transactionDate = transactionDate;
     }
 
-    // Getters and setters
-    public int getTransactionId() {
+
+    public Transactions(Integer transactionId, int accountId, double amount, Date transactionDate, String transactionType, Accounts accounts) {
+        this.transactionId = transactionId;
+        this.accountId = accountId;
+        this.amount = amount;
+        this.transactionType = transactionType;
+        this.transactionDate = transactionDate;
+        this.accounts = accounts;
+    }
+
+    public Integer getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(int transactionId) {
+    public void setTransactionId(Integer transactionId) {
         this.transactionId = transactionId;
     }
 
@@ -86,12 +89,11 @@ public class Transactions {
         this.transactionType = transactionType;
     }
 
-    // public Accounts getAccounts() {
-    //     return accounts;
-    // }
+    public Accounts getAccounts() {
+        return accounts;
+    }
 
-    // public void setAccounts(Accounts accounts) {
-    //     this.accounts = accounts;
-    // }
-    
+    public void setAccounts(Accounts accounts) {
+        this.accounts = accounts;
+    }
 }

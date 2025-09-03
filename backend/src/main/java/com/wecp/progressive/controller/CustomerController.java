@@ -19,8 +19,10 @@ import java.util.List;
 public class CustomerController {
     @Autowired
     private CustomerServiceImplJpa customerServiceImplJpa;
+
     @Autowired
     private CustomerServiceImplArraylist customerServiceImplArraylist;
+
     @GetMapping
     public ResponseEntity<List<Customers>> getAllCustomers() {
         try{
@@ -31,6 +33,7 @@ public class CustomerController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @GetMapping("/{customerId}")
     public ResponseEntity<Customers> getCustomerById(@PathVariable int customerId) {
         try{
@@ -46,8 +49,9 @@ public class CustomerController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PostMapping
-    public ResponseEntity<Integer> addCustomer(@RequestBody Customers customers) {
+    public ResponseEntity<?> addCustomer(@RequestBody Customers customers) {
         try{
             int customerId=customerServiceImplJpa.addCustomer(customers);
             return new ResponseEntity<>(customerId,HttpStatus.CREATED);
@@ -57,13 +61,13 @@ public class CustomerController {
         }
     }
     @PutMapping("/{customerId}")
-    public ResponseEntity<Void> updateCustomer(@PathVariable int customerId, @RequestBody Customers customers) {
+    public ResponseEntity<?> updateCustomer(@PathVariable Integer customerId, @RequestBody Customers customers) {
         try{
             customers.setCustomerId(customerId);
             customerServiceImplJpa.updateCustomer(customers);
             return new ResponseEntity<>(HttpStatus.OK);
         }
-        catch(SQLException e){
+        catch(Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

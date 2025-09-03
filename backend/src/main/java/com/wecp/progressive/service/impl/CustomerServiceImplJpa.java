@@ -10,12 +10,17 @@ import org.springframework.stereotype.Service;
 
 import com.wecp.progressive.entity.Accounts;
 import com.wecp.progressive.entity.Customers;
+import com.wecp.progressive.exception.CustomerAlreadyExistsException;
+import com.wecp.progressive.repository.AccountRepository;
 import com.wecp.progressive.repository.CustomerRepository;
 import com.wecp.progressive.service.CustomerService;
 
 @Service
 public class CustomerServiceImplJpa implements CustomerService{
 
+    @Autowired
+    private AccountRepository accountRepository;
+    
     @Autowired
     private final CustomerRepository customerRepository;
 
@@ -30,6 +35,10 @@ public class CustomerServiceImplJpa implements CustomerService{
 
     @Override
     public int addCustomer(Customers customers) throws SQLException {
+        Customers customers1 = customerRepository.findByNameAndEmail(customers.getName(), customers.getEmail());
+        if (customers1 != null) {
+            throw new CustomerAlreadyExistsException("Customer already exists");
+        }
         return customerRepository.save(customers).getCustomerId();
     }
 
@@ -45,9 +54,11 @@ public class CustomerServiceImplJpa implements CustomerService{
     public void updateCustomer(Customers customers) throws SQLException {
         customerRepository.save(customers);
     }
+
     public void deleteCustomer(int customerId) throws SQLException {
         customerRepository.deleteByCustomerId(customerId);
     }
+    
     public Customers getCustomerById(int customerId) throws SQLException {
         return customerRepository.findByCustomerId(customerId);
     }
