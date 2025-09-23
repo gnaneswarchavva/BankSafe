@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<h2 style="text-align: center">Make a Transaction</h2>
+<form (ngSubmit)="onSubmit()" [formGroup]="transactionForm" class="transaction-form">
+    <div class="form-group">
+        <label for="userId">Account:</label>
+        <select formControlName="accounts">
+            <option value="">Select Account</option>
+            <option *ngFor="let account of accounts$ | async" [ngValue]="account">
+                {{ account.accountId }}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" formControlName="amount" />
+
+    </div>
+    <div class="form-group">
+        <label for="transaction_type">Transaction Type:</label>
+        <input type="radio" id="transaction_type" formControlName="transactionType" value="credit" /> Credit
+        <input type="radio" id="transaction_type" formControlName="transactionType" value="debit" /> Debit
+    </div>
+    <!-- <input type="hidden" [value]="new Date()"/> -->
+
+    <button type="submit" class="btn-submit">Submit</button>
+    <ng-container>
+        <div *ngIf="transactionError$ | async as error" class="error">
+            {{ error }}
+        </div>
+        <div *ngIf="transactionSuccess$ | async as msg" class="success">
+            {{ msg }}
+        </div>
+    </ng-container>
+    <a routerLink="/bank" class="task-list" class="task-list">Dashboard</a>
+
+</form>

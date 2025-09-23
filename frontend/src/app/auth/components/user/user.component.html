@@ -1,0 +1,70 @@
+<div class="container">
+
+  <div class="card">
+    <div class="row">
+      <div class="col-12">
+        <div class="card-header">
+         <h1 style="text-align: center;"> Register</h1>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" [formGroup]="userForm" class="user-form">
+            <div class="form-group">
+              <label for="userId">Username:</label>
+              <input
+                type="text"
+                id="username"
+                formControlName="username"
+                class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                formControlName="password"
+                class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="name">Full Name:</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="password">Email:</label>
+              <input
+                type="text"
+                id="email"
+                formControlName="email"
+                class="form-control" />
+                
+            </div>
+
+            <div class="form-group">
+              <label for="role">Role:</label>
+              <select formControlName="role" class="form-control">
+                <option value="USER">User</option>
+                <option value="ADMIN">Admin</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-submit">Create User</button>
+
+            <ng-container>
+              <div *ngIf="userError$ | async as error" class="error">
+                {{ error }}
+              </div>
+              <div *ngIf="userSuccess$ | async as msg" class="success">
+                {{ msg }}
+              </div>
+            </ng-container>
+
+            <a routerLink="/auth" class="task-list" class="task-list">Login</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

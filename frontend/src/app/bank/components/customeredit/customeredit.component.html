@@ -1,0 +1,51 @@
+<div class="card">
+  <h2>{{ title }}</h2>
+
+  <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <label>Name</label>
+      <input type="text" formControlName="name" placeholder="Enter full name" />
+      <div class="error" *ngIf="customerForm.controls.name.touched && customerForm.controls.name.invalid">
+        Name is required (min 2 chars).
+      </div>
+    </div>
+
+    <div class="row">
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="name@example.com" />
+      <div class="error" *ngIf="customerForm.controls.email.touched && customerForm.controls.email.invalid">
+        A valid email is required.
+      </div>
+    </div>
+
+    <div class="row">
+      <label>Username</label>
+      <input type="text" formControlName="username" placeholder="username" />
+      <div class="error" *ngIf="customerForm.controls.username.touched && customerForm.controls.username.invalid">
+        Username is required (min 3 chars).
+      </div>
+    </div>
+
+    <div class="row">
+      <label>Password</label>
+      <input type="password" formControlName="password" placeholder="••••••••" />
+      <small class="hint" *ngIf="mode === 'update'">Leave blank to keep existing password.</small>
+    </div>
+
+    <div class="row">
+      <label>Role</label>
+      <select formControlName="role">
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="primary">
+        {{ mode === 'create' ? 'Add Customer' : 'Update Customer' }}
+      </button>
+    </div>
+
+    <div *ngIf="customerSuccess" class="hint">{{ customerSuccess }}</div>
+  </form>
+</div>

@@ -1,0 +1,126 @@
+.transaction-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0b44e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.error,
+.success {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.error {
+    background-color: #f44336;
+    color: white;
+}
+
+.success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.transaction-history {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.transaction-history th,
+.transaction-history td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.transaction-history th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.transaction-history tr:hover {
+    background-color: #f9f9f9;
+}
+
+.transaction-history .credit {
+    color: green;
+}
+
+.transaction-history .debit {
+    color: red;
+}
+
+a.task-list {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a.task-list:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}

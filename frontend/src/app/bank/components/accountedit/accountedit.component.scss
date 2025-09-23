@@ -1,0 +1,82 @@
+.card {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  
+    h2 {
+      margin-bottom: 24px;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #333;
+    }
+  
+    form {
+      .row {
+        margin-bottom: 18px;
+  
+        label {
+          display: block;
+          font-weight: 600;
+          margin-bottom: 6px;
+          color: #222;
+        }
+  
+        select,
+        input[type="number"] {
+          width: 100%;
+          padding: 8px 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+          margin-bottom: 4px;
+          box-sizing: border-box;
+          transition: border-color 0.2s;
+  
+          &:focus {
+            border-color: #007bff;
+            outline: none;
+          }
+        }
+  
+        .error {
+          margin-top: 4px;
+          color: #dc3545;
+          font-size: 0.92rem;
+        }
+      }
+  
+      .actions {
+        margin-top: 20px;
+        text-align: center;
+  
+        .primary {
+          width: 100%;
+          padding: 10px 0;
+          color: #fff;
+          background-color: #007bff;
+          border: none;
+          border-radius: 4px;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.2s;
+  
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+  
+      .hint {
+        margin-top: 16px;
+        color: #28a745;
+        text-align: center;
+        font-size: 1rem;
+      }
+    }
+  }
+  
